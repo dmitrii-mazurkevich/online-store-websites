@@ -1,0 +1,49 @@
+/* Shared base for template pages. Each page sets its own look on top. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; overflow-x: clip; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+html.i18n-pending body { visibility: hidden; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.is-hidden { display: none !important; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* reveal */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: .08s; } .rv.d2 { transition-delay: .16s; } .rv.d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } * { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+/* dialog */
+dialog.mdl { border: 0; padding: 0; width: min(520px, calc(100% - 24px)); max-height: calc(100% - 24px); border-radius: 18px; }
+dialog.mdl::backdrop { background: rgba(10, 10, 14, .55); backdrop-filter: blur(3px); }
+dialog.mdl[open] { animation: mdl-in .28s cubic-bezier(.2,.8,.2,1); }
+@keyframes mdl-in { from { opacity: 0; transform: translateY(20px) scale(.98); } }
+.mdl__in { padding: 26px; position: relative; }
+.mdl__x { position: absolute; right: 12px; top: 12px; width: 40px; height: 40px; border: 0; background: transparent; font-size: 26px; line-height: 1; cursor: pointer; border-radius: 50%; }
+.mdl__x:hover { background: rgba(127,127,127,.15); }
+.fm { display: grid; gap: 12px; }
+.fm label { display: grid; gap: 5px; font-size: .92rem; font-weight: 600; }
+.fm input, .fm select, .fm textarea { width: 100%; min-height: 46px; padding: 10px 12px; border-radius: 10px; border: 1.5px solid rgba(127,127,127,.4); background: transparent; }
+.fm textarea { min-height: 96px; resize: vertical; }
+.fm .is-bad { border-color: #D33 !important; }
+.fm [data-ok] { padding: 12px 14px; border-radius: 10px; background: rgba(60, 160, 90, .14); font-weight: 600; }
+.fm [data-err] { padding: 12px 14px; border-radius: 10px; background: rgba(220, 70, 50, .12); font-weight: 600; }
+.fm.is-busy [type="submit"] { opacity: .6; cursor: progress; }
+.fm.is-sent [data-hide-sent] { display: none; }
+
+/* carousel */
+.car-track { display: grid; grid-auto-flow: column; grid-auto-columns: min(82%, 360px); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
+.car-track::-webkit-scrollbar { display: none; }
+.car-track > * { scroll-snap-align: start; }
+
+/* back-to-portfolio chip */
+.pf-back { position: fixed; left: 12px; bottom: 12px; z-index: 90; display: inline-flex; gap: 6px; align-items: center; padding: 9px 13px; border-radius: 999px; background: #111; color: #fff; text-decoration: none; font: 600 13px/1 system-ui, sans-serif; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+.pf-back:hover { background: #333; }
+
+/* map */
+.map-frame { width: 100%; height: 100%; min-height: 300px; border: 0; display: block; }
