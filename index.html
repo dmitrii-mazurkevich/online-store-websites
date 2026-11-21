@@ -33,6 +33,6 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--mut);fon
 </div>
 <script>
 (function(){var b=document.querySelectorAll('.lang button');function set(l){document.documentElement.lang=l;document.querySelectorAll('[data-en]').forEach(function(e){e.textContent=e.getAttribute('data-'+l)});b.forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-l')===l)});try{localStorage.setItem('lang',l)}catch(e){}}
-b.forEach(function(x){x.addEventListener('click',function(){set(x.getAttribute('data-l'))})});var s=null;try{s=localStorage.getItem('lang')}catch(e){}if(!s&&/^ru/i.test(navigator.language))s='ru';if(s==='ru')set('ru')})();
+b.forEach(function(x){x.addEventListener('click',function(){set(x.getAttribute('data-l'))})});var s=null;try{s=localStorage.getItem('lang')}catch(e){}if(s==='ru')set('ru')})();
 </script>
 </body></html>
